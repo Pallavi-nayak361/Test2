@@ -1,0 +1,43 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.sidebar{
+    position: fixed;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: cornflowerblue;
+}
+.sidebar header{
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    user-select: none;
+}
+.sidebar ul  a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 65px;
+    font-size: 22px;
+    color: black;
+    padding-left: 40px;
+    box-sizing: border-box;
+    
+}
+.navbar{
+    position: absolute; 
+    width: 1200px;
+    height: 70%;
+    top: 5%;
+    left:50%;
+}
+
+

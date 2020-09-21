@@ -1,0 +1,28 @@
+
+<form #registerForm="ngForm" ngSubmit="saveRegister(registerForm)">
+    <div class="container">
+          <h3 class="title">Login</h3>
+          <div class="form-group" [class.has-error]="nameControl.invalid && nameControl.touched">
+            <label for="name" class="control-label">Username: </label>
+          <input required pattern="^[A-Za-z]{3,30}$" type="text" id="name" name="name" class="form-control" [(ngModel)]="name" #nameControl="ngModel">
+            <span class="help-block" *ngIf="nameControl.errors?.required && nameControl.touched">Name is required</span>
+            <span class="help-block" *ngIf="nameControl.errors?.pattern && nameControl.touched"> Valid Name is required(First letter should be capital)</span>
+          </div><br>
+
+          <div class="form-group" [class.has-error]="passwordControl.invalid && passwordControl.touched">
+            <label for="password" class="control-label">Password:</label>
+             <input required type="password" id="password" name="password" class="form-control" [(ngModel)]="password" #passwordControl="ngModel">
+               <span class="help-block" *ngIf="passwordControl.errors?.required && passwordControl.touched">password is required</span>
+         </div><br>
+
+        <div class="footer">
+         <button type="submit" routerLink="/landing" class="btn btn-primary" [disabled]="registerForm.invalid">Login</button>&nbsp;
+         <a href="">Forgot password?</a>
+         <p>Dont have a account?</p><button type="submit" routerLink="/register" class="btn btn-primary">Register</button>
+
+        </div>
+
+    </div>
+</form>
+
+{{registerForm.value | json}}

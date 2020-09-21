@@ -1,0 +1,23 @@
+<form #registerForm="ngForm" ngSubmit="saveRegister(registerForm)" class="abc">
+    <h3 class="title">Institution</h3>
+    <button class="btn">Add Institute</button><br><br>
+    <div>
+    <input type="text" placeholder="Institution Name">&nbsp; 
+    <input type="text" placeholder="Upload Image"><br><br>
+</div><br><br><br>
+<div>
+    <input type="text" placeholder="City">&nbsp;
+    <input type="text" placeholder="District">&nbsp;
+    <input type="text" placeholder="State"><br><br>
+    <input type="text" placeholder="Detect/Pick location">&nbsp;<br><br>
+    
+</div><br>
+
+<div>
+    <button type="submit" class="btn btn-primary">Save</button>
+   </div>
+
+</form>
+        
+
+{{registerForm.value | json}}

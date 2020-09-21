@@ -1,0 +1,54 @@
+<form #registerForm="ngForm" ngSubmit="saveRegister(registerForm)">
+    <div class="container">
+          <h3 class="title">Register</h3>
+          <div class="form-group" [class.has-error]="nameControl.invalid && nameControl.touched">
+            <label for="name" class="control-label">First Name: </label>
+          <input required pattern="^[A-Za-z]{3,30}$" type="text" id="name" name="name" class="form-control" [(ngModel)]="name" #nameControl="ngModel">
+            <span class="help-block" *ngIf="nameControl.errors?.required && nameControl.touched">Name is required</span>
+            <span class="help-block" *ngIf="nameControl.errors?.pattern && nameControl.touched"> Valid Name is required(First letter should be capital)</span>
+          </div><br>
+
+          
+
+          <div class="form-group" [class.has-error]="emailControl.invalid && emailControl.touched">
+            <label for="email" class="control-label">Email:</label>
+            <input required pattern="^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9+-_.]+\.[a-zA-Z0-9+-_.]+$" type="text" id="email" name="email" class="form-control" [(ngModel)]="email" #emailControl="ngModel">
+            <span class="help-block" *ngIf="emailControl.errors?.required && emailControl.touched">Email is required</span>
+            <span class="help-block" *ngIf="emailControl.errors?.pattern && emailControl.touched"> Valid Email is required</span>
+
+          </div><br>
+
+          <div class="form-group" [class.has-error]="phoneControl.invalid && phoneControl.touched"
+        [class.has-success]="phoneControl.valid">
+          <label for="phone" class="control-label">Phone:</label>
+          <input required pattern="^[0-9]{10}$" type="text" id="phone" name="phone" class="form-control" [(ngModel)]="phone" #phoneControl="ngModel">
+          <span class="help-block" *ngIf="phoneControl.errors?.required && phoneControl.touched">Phone Number is required</span>
+          <span class="help-block" *ngIf="phoneControl.errors?.pattern && phoneControl.touched">Valid Phone Number is required</span>
+        </div><br>
+
+        <div ngModelGroup="passwordGroup" [class.has-error]="confirmpasswordControl.invalid && confirmpasswordControl.touched && !confirmpasswordControl.errors?.required">
+          
+          <div class="form-group" [class.has-error]="passwordControl.invalid && passwordControl.touched">
+              <label for="password" class="control-label">Password:</label>
+               <input required (change)="confirmpasswordControl.control.updateValueAndValidity()" type="text" id="password" name="password" class="form-control" [(ngModel)]="password" #passwordControl="ngModel">
+                 <span class="help-block" *ngIf="passwordControl.errors?.required && passwordControl.touched">password is required</span>
+           </div><br>
+
+  
+           <div class="form-group" [class.has-error]="confirmpasswordControl.invalid && confirmpasswordControl.touched">
+              <label for="confirmpassword" class="control-label">Confirm Password:</label>
+               <input required appConfirmEqualValidator="password" type="text" id="confirmpassword" name="confirmpassword" class="form-control" [(ngModel)]="confirmpassword" #confirmpasswordControl="ngModel">
+                 <span class="help-block" *ngIf="confirmpasswordControl.errors?.required && confirmpasswordControl.touched">confirm password is required</span>
+                 <span class="help-block" *ngIf="confirmpasswordControl.errors?.notEqual && confirmpasswordControl.touched && !confirmpasswordControl.errors?.required">password and confirmpassword are not match</span>
+           </div>
+          </div><br>
+
+
+        
+        <div class="footer">
+         <button type="submit" class="btn btn-primary" routerLink="/landing" [disabled]="registerForm.invalid">SUBMIT</button>
+        </div>
+
+    </div>
+</form>
+

@@ -1,0 +1,27 @@
+form{
+    top: 50%;
+    left: 50% ;
+    
+    align-items: center;
+    border: 1px solid blue;
+    height: 500px;
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+    background-color: lightblue;
+    align-self: auto;
+    
+}
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+
+
+
+

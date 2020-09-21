@@ -1,0 +1,43 @@
+<form #registerForm="ngForm" ngSubmit="saveRegister(registerForm)" class="abc">
+    <h3 class="title">Batch</h3>
+    <button class="btn">Add Batch</button><br><br>
+    <div>
+    <select name="select Institution" id="institution" value="select Institution">
+        <option value="1">select Institution</option>
+        <option value="2">DF</option>
+        <option value="3">GH</option>
+        <option value="4">KL</option>
+        <option value="5">MN</option>
+    </select>&nbsp;
+    
+
+    
+    <input type="text" placeholder="Batch Name">&nbsp; 
+
+    
+    <input type="text" placeholder="Upload Image"><br><br>
+     
+    <input type="text" placeholder="Class">&nbsp;
+    <input type="text" placeholder="Subject">&nbsp;
+    <input type="text" placeholder="Board">&nbsp; 
+</div><br><br><br>
+<div>
+    <input type="text" placeholder="Monday">&nbsp;
+    <input type="text" placeholder="Start-Time">&nbsp;
+    <input type="text" placeholder="End-Time">&nbsp;<br><br>
+    <input type="text" placeholder="Tuesday">&nbsp;
+    <input type="text" placeholder="Start-Time">&nbsp;
+    <input type="text" placeholder="End-Time">&nbsp; 
+</div>
+<div>
+<h3>Batch List</h3>
+<li>Batch 1<i class="fas fa-qrcode"></i></li>
+
+<li>Batch 2<i class="fas fa-qrcode"></i></li>
+
+
+</div>
+</form>
+        
+
+{{registerForm.value | json}}
